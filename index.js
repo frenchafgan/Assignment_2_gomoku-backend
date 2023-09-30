@@ -18,8 +18,7 @@ const corsOptions = {
   credentials: true,
 };
 
-app.use(cors());
-app.options('*', cors());
+app.use(cors(corsOptions));
 
 // Middleware Setup
 app.use(express.json()); // Middleware for parsing JSON
