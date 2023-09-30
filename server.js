@@ -11,7 +11,7 @@ const authorize = require('./middleware/middleware');
 
 // Constants and Variables
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 const corsOptions = {
   origin: 'http://localhost:3000',
@@ -21,6 +21,10 @@ const corsOptions = {
 // Middleware Setup
 app.use(cors(corsOptions));
 app.use(express.json()); // Middleware for parsing JSON
+
+app.get('/', (req, res) => {
+  res.send('Gomoku Backend Express Server');
+});
 
 // MongoDB Setup
 const MONGO_DB_URL = process.env.MONGO_DB_URL;
@@ -41,7 +45,7 @@ mongoose
     app.use('/auth', authRoutes); // Authentication routes
     app.use('/game', gameRoutes); // Game routes
 
-    // Example protected route
+    // protected route
     app.get('/protected', authorize, (req, res) => {
       res.send('This is a protected route');
     });
