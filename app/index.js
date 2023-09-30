@@ -14,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const corsOptions = {
-  origin: 'https://gomoku-9bf979a7bc44.herokuapp.com/',
+  origin: 'https://gomoku-9bf979a7bc44.herokuapp.com',
   credentials: true,
 };
 
