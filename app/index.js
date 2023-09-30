@@ -19,8 +19,10 @@ const corsOptions = {
 };
 
 // Middleware Setup
-app.use(cors(corsOptions));
 app.use(express.json()); // Middleware for parsing JSON
+
+app.use(cors());
+app.options('*', cors());
 
 app.get('/', (req, res) => {
   res.send('Gomoku Backend Express Server');

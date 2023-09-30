@@ -14,12 +14,14 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'https://gomoku-9bf979a7bc44.herokuapp.com/',
   credentials: true,
 };
 
+app.use(cors());
+app.options('*', cors());
+
 // Middleware Setup
-app.use(cors(corsOptions));
 app.use(express.json()); // Middleware for parsing JSON
 
 app.get('/', (req, res) => {
